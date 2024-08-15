@@ -1,0 +1,155 @@
+{{ 'custom-product-grid.css' | asset_url | stylesheet_tag }}
+{{ "popup.css" | asset_url | stylesheet_tag }}
+{% render 'variant-option-colors' %}
+{% style %}
+    #id-{{ section.id }} .custom_product_grid-btn {
+        left: var(--desktop-left-position);
+        top: var(--desktop-top-position);
+    }
+    @media screen and (max-width: 767px) {
+        #id-{{ section.id }} .custom_product_grid-btn {
+            left: var(--mobile-left-position);
+            top: var(--mobile-top-position);
+        }
+    }
+    .modal_product__card-select {
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 16px;
+        letter-spacing: -0.02em;
+        width: 100%;
+        padding: 10px 13px;
+        border: 0.5px solid #000000;
+        margin-bottom: 51px;
+    }
+    .modal_product__card-select {
+        -webkit-appearance: none;
+    }
+    select.modal_product__card-select:focus-visible {
+        outline: none;
+        outline-offset: none;
+        box-shadow: none;
+    }
+    .modal_product_card-select-arrow {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 16px 20px;
+        width: 100%;
+        height: 100%;
+        border-left: 0.5px solid #000000;
+    }
+    .modal_product_card-select-arrow {
+        max-width: 55px;
+        height:38px;
+        pointer-events: none;
+    }
+    .modal_product_card-select:focus-visible {
+        outline: none;
+        outline-offset: 0;
+        box-shadow: unset;
+    }
+{% endstyle %}
+
+<div class="custom_product_grid" id="id-{{ section.id }}">
+    {% render 'popup-snippet' %}
+    <div class="container">
+        {% if section.settings.custom_product_grid_title != blank %}
+            <h2 class="custom_product_grid-title">{{ section.settings.custom_product_grid_title }}</h2>
+        {% endif %}
+        <div class="custom_product_grid-row">
+            {% for block in section.blocks %}
+                {% assign product = block.settings.picked_product %}
+                <div class="custom_product_grid-item">
+                    <div class="custom_product_grid-image-wrapper">
+                        <img src="{{ product.featured_image | image_url: width: '600x' }}" alt="{{ product.title }}" class="custom_product_grid-img">
+                    </div>
+                    <span class="custom_product_grid-btn quick-add-to-cart-btn" 
+                        style="--desktop-left-position:{{ block.settings.icon_position_left_desktop }}%; --desktop-top-position:{{ block.settings.icon_position_top_desktop }}%; --mobile-left-position:{{ block.settings.icon_position_left_mobile }}%; --mobile-top-position:{{ block.settings.icon_position_top_mobile }}%;" 
+                        js-quick-add-to-cart-btn 
+                        data-product-handle="{{ product.handle }}"> 
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
+                            <circle cx="11" cy="11" r="11" fill="#F8F8F8" fill-opacity="0.9"/>
+                            <path d="M11.3457 7.04175V15.5033" stroke="black" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="round"/>
+                            <path d="M7.11523 11.2725H15.5768" stroke="black" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="round"/>
+                        </svg>
+                    </span>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<script src="{{ 'custom.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+    "name": "Custom Product Grid",
+    "settings": [
+        {
+            "type": "text",
+            "id": "product_grid_title",
+            "label": "Product Grid Title"
+        }
+    ],
+    "blocks": [
+        {
+            "name": "Product Grid Item",
+            "type": "product_grid_item",
+            "limit": 6,
+            "settings": [
+                {
+                    "type": "product",
+                    "id": "picked_product",
+                    "label": "Pick A Product "
+                },
+                {
+                    "type": "range",
+                    "id": "icon_position_left_desktop",
+                    "min": 0,
+                    "max": 100,
+                    "step": 1,
+                    "unit": "%",
+                    "label": "Icon Position (Desktop Left)",
+                    "default": 0
+                },
+                {
+                    "type": "range",
+                    "id": "icon_position_top_desktop",
+                    "min": 0,
+                    "max": 100,
+                    "step": 1,
+                    "unit": "%",
+                    "label": "Icon Position (Desktop Top)",
+                    "default": 0
+                },
+                {
+                    "type": "range",
+                    "id": "icon_position_left_mobile",
+                    "min": 0,
+                    "max": 100,
+                    "step": 1,
+                    "unit": "%",
+                    "label": "Icon Position (Mobile Left)",
+                    "default": 0
+                },
+                {
+                    "type": "range",
+                    "id": "icon_position_top_mobile",
+                    "min": 0,
+                    "max": 100,
+                    "step": 1,
+                    "unit": "%",
+                    "label": "Icon Position (Mobile Top)",
+                    "default": 0
+                } 
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Product Grid"
+        }
+    ]
+}
+{% endschema %}

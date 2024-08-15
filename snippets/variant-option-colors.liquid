@@ -1,0 +1,7 @@
+<style>
+  {%- for colorCode in shop.metaobjects.variant_option_colors.values -%}
+    .{{ colorCode.color_name | downcase | handleize }}{
+        background: {{ colorCode.color_code }};
+    }
+  {%- endfor -%}
+</style>
