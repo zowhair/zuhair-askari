@@ -1,0 +1,97 @@
+
+{
+  "sections": {
+    "hero_banner_bFMULh": {
+      "type": "custom-banner",
+      "settings": {
+        "banner_bg_image": "shopify:\/\/shop_images\/woman-in-the-city_925x_fa6b306e-cdb3-4593-94a7-91ba71d3e059.jpg",
+        "custom_banner_title": "The Gift Guide",
+        "custom_banner_description": "<p>Discover Joy: Your Ultimate Holiday Gift Destination. Explore our curated selection and find the perfect gifts to delight your loved ones this holiday season.<\/p>",
+        "custom_banner_mobile_description": "<p>Discover Joy: Your Ultimate Holiday Gift Destination.<br\/><\/p>",
+        "banner_cta_text": "Shop Now",
+        "banner_footer_note": "SUSTAINABLE, ETHICALLY MADE CLOTHES IN SIZES XXS TO 6XL",
+        "banner_footer_note_mobile": "SUSTAINABLE, ETHICALLY MADE ACTIVEWEAR"
+      }
+    },
+    "product_grid": {
+      "type": "custom-product-grid",
+      "blocks": {
+        "product_PDKGMP": {
+          "type": "product_grid_item",
+          "settings": {
+            "picked_product": "black-leather-bag",
+            "icon_position_left_desktop": 31,
+            "icon_position_top_desktop": 14,
+            "icon_position_left_mobile": 82,
+            "icon_position_top_mobile": 35
+          }
+        },
+        "product_T8WcjG": {
+          "type": "product_grid_item",
+          "settings": {
+            "picked_product": "blue-silk-tuxedo",
+            "icon_position_left_desktop": 26,
+            "icon_position_top_desktop": 62,
+            "icon_position_left_mobile": 58,
+            "icon_position_top_mobile": 36
+          }
+        },
+        "product_jajzH8": {
+          "type": "product_grid_item",
+          "settings": {
+            "picked_product": "chequered-red-shirt",
+            "icon_position_left_desktop": 34,
+            "icon_position_top_desktop": 19,
+            "icon_position_left_mobile": 40,
+            "icon_position_top_mobile": 38
+          }
+        },
+        "product_kTLemc": {
+          "type": "product_grid_item",
+          "settings": {
+            "picked_product": "classic-leather-jacket",
+            "icon_position_left_desktop": 69,
+            "icon_position_top_desktop": 48,
+            "icon_position_left_mobile": 27,
+            "icon_position_top_mobile": 38
+          }
+        },
+        "product_DgVfgB": {
+          "type": "product_grid_item",
+          "settings": {
+            "picked_product": "classic-varsity-top",
+            "icon_position_left_desktop": 50,
+            "icon_position_top_desktop": 32,
+            "icon_position_left_mobile": 35,
+            "icon_position_top_mobile": 34
+          }
+        },
+        "product_fLfxPm": {
+          "type": "product_grid_item",
+          "settings": {
+            "picked_product": "dark-denim-top",
+            "icon_position_left_desktop": 50,
+            "icon_position_top_desktop": 50,
+            "icon_position_left_mobile": 0,
+            "icon_position_top_mobile": 0
+          }
+        }
+      },
+      "block_order": [
+        "product_PDKGMP",
+        "product_T8WcjG",
+        "product_jajzH8",
+        "product_kTLemc",
+        "product_DgVfgB",
+        "product_fLfxPm"
+      ],
+      "settings": {
+        "product_grid_title": "Tisso vison in the wild"
+      }
+    }
+  },
+  "order": [
+    "hero_banner_bFMULh",
+    "product_grid"
+  ]
+}

@@ -1059,7 +1059,13 @@ class VariantSelects extends HTMLElement {
   connectedCallback() {
     this.addEventListener('change', (event) => {
       const target = this.getInputForEventTarget(event.target);
+
       this.updateSelectionMetadata(event);
+      const data = {
+          event,
+          target,
+          selectedOptionValues: this.selectedOptionValues,
+        }
 
       publish(PUB_SUB_EVENTS.optionValueSelectionChange, {
         data: {
@@ -1068,6 +1074,7 @@ class VariantSelects extends HTMLElement {
           selectedOptionValues: this.selectedOptionValues,
         },
       });
+      publish(PUB_SUB_EVENTS.customProductFormChange, data);
     });
   }
 

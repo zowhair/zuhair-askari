@@ -1,0 +1,107 @@
+{{ 'custom-banner.css' | asset_url | stylesheet_tag }}
+<div class="custom_banner">
+  {% if section.settings.banner_bg_image != blank %}
+    <div class="custom_banner-image">
+      <img src="{{ section.settings.banner_bg_image | image_url: width: '1400'}}" alt="Banner Background Image">
+    </div>
+  {% endif %} 
+  
+  <div class="custom_banner-wrapper">
+    <div class="custom_banner_content-area">
+      {% if section.settings.custom_banner_title != blank %}
+        <h1 class="custom_banner-title">{{ section.settings.custom_banner_title }}</h1>
+      {% endif %}
+      {% if section.settings.custom_banner_description != blank %}
+        <div class="custom_banner-description des_description">{{ section.settings.custom_banner_description }}</div>
+      {% endif %}
+      {% if section.settings.custom_banner_mobile_description != blank %}
+        <div class="custom_banner-description mob_description">{{ section.settings.custom_banner_mobile_description }}</div>
+      {% endif %}
+      {% if section.settings.banner_cta_text != blank %} 
+        <div class="custom_banner-btn-svg-wrap des_btn cus_button">
+          <h3 class="custom_banner-btn-text cus_btn-text">{{ section.settings.banner_cta_text }}</h3>
+          <div class="custom_banner-arrow-svg arrow-svg">
+            <svg
+              width="28"
+              height="13"
+              viewBox="0 0 28 13"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path d="M1.11108 5.74402L0.361084 5.74402L0.361084 7.24402L1.11108 7.24402L1.11108 5.74402ZM27.1487 7.02435C27.4416 6.73146 27.4416 6.25658 27.1487 5.96369L22.3757 1.19072C22.0828 0.897826 21.6079 0.897826 21.315 1.19072C21.0221 1.48361 21.0221 1.95849 21.315 2.25138L25.5577 6.49402L21.315 10.7367C21.0221 11.0296 21.0221 11.5044 21.315 11.7973C21.6079 12.0902 22.0828 12.0902 22.3757 11.7973L27.1487 7.02435ZM1.11108 7.24402L26.6183 7.24402L26.6183 5.74402L1.11108 5.74402L1.11108 7.24402Z" fill="white" />
+            </svg>
+          </div>
+        </div>
+      {% endif %}
+    </div>
+    {% if section.settings.banner_cta_text != blank %}
+        <div class="mob_button">
+            <div class="custom_banner-btn-svg-wrap cus_button">
+                <h3 class="custom_banner-btn-text cus_btn-text">{{ section.settings.banner_cta_text }}</h3>
+                <div class="custom_banner-arrow-svg arrow-svg">
+                  <svg
+                    width="28"
+                    height="13"  
+                    viewBox="0 0 28 13"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1.11108 5.74402L0.361084 5.74402L0.361084 7.24402L1.11108 7.24402L1.11108 5.74402ZM27.1487 7.02435C27.4416 6.73146 27.4416 6.25658 27.1487 5.96369L22.3757 1.19072C22.0828 0.897826 21.6079 0.897826 21.315 1.19072C21.0221 1.48361 21.0221 1.95849 21.315 2.25138L25.5577 6.49402L21.315 10.7367C21.0221 11.0296 21.0221 11.5044 21.315 11.7973C21.6079 12.0902 22.0828 12.0902 22.3757 11.7973L27.1487 7.02435ZM1.11108 7.24402L26.6183 7.24402L26.6183 5.74402L1.11108 5.74402L1.11108 7.24402Z" fill="white" />
+                  </svg>
+                </div>
+              </div>
+        </div> 
+      {% endif %} 
+    {% if section.settings.banner_footer_note != blank %}
+        <span class="custom_banner-sub-title">{{ section.settings.banner_footer_note }}</span> 
+    {% endif %}
+    {% if section.settings.banner_footer_note_mobile != blank %}
+        <span class="custom_banner-sub-title mob_sub-title">{{ section.settings.banner_footer_note_mobile }}</span> 
+    {% endif %}
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "Hero Banner",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "banner_bg_image",
+        "label": "Banner image"
+      },
+      {
+        "type": "text",
+        "id": "custom_banner_title",
+        "label": "Custom Banner Title"
+      },
+      {
+        "type": "richtext",
+        "id": "custom_banner_description",
+        "label": "Custom Banner Description"
+      },  
+      {
+        "type": "richtext",
+        "id": "custom_banner_mobile_description",
+        "label": "Custom Banner Mobile Description"
+      }, 
+      {
+        "type": "text",
+        "id": "banner_cta_text",
+        "label": "Banner CTA Button Text"
+      },
+      {
+        "type": "text",
+        "id": "banner_footer_note",
+        "label": "Banner Footer Note"
+      },
+      {
+        "type": "text",
+        "id": "banner_footer_note_mobile",
+        "label": "Banner Footer Note (mobile)"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Hero Banner"
+      } 
+    ]
+  }
+{% endschema %}
